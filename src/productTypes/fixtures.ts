@@ -472,8 +472,10 @@ export const productTypes: Array<SearchProductTypes_search_edges_node &
   ProductTypeList_productTypes_edges_node> = [
   {
     __typename: "ProductType" as "ProductType",
+    customizableAttributes: [attributes[0], attributes[3]],
     hasVariants: true,
     id: "UHJvZHVjdFR5cGU6NA==",
+    isCustomizable: false,
     isShippingRequired: true,
     name: "Candy",
     productAttributes: [attributes[0]],
@@ -502,8 +504,10 @@ export const productTypes: Array<SearchProductTypes_search_edges_node &
   },
   {
     __typename: "ProductType" as "ProductType",
+    customizableAttributes: [attributes[0], attributes[3]],
     hasVariants: false,
     id: "UHJvZHVjdFR5cGU6Mg==",
+    isCustomizable: false,
     isShippingRequired: true,
     name: "Mugs",
     productAttributes: [attributes[7]],
@@ -516,8 +520,10 @@ export const productTypes: Array<SearchProductTypes_search_edges_node &
   },
   {
     __typename: "ProductType" as "ProductType",
+    customizableAttributes: [attributes[0], attributes[3]],
     hasVariants: true,
     id: "UHJvZHVjdFR5cGU6Mw==",
+    isCustomizable: false,
     isShippingRequired: true,
     name: "Coffee",
     productAttributes: [attributes[8]],
@@ -530,8 +536,10 @@ export const productTypes: Array<SearchProductTypes_search_edges_node &
   },
   {
     __typename: "ProductType" as "ProductType",
+    customizableAttributes: [attributes[0], attributes[3]],
     hasVariants: true,
     id: "UHJvZHVjdFR5cGU6MQ==",
+    isCustomizable: false,
     isShippingRequired: true,
     name: "T-Shirt",
     productAttributes: [attributes[4]],
@@ -548,8 +556,10 @@ export const productTypes: Array<SearchProductTypes_search_edges_node &
 }));
 export const productType: ProductTypeDetails_productType = {
   __typename: "ProductType" as "ProductType",
+  customizableAttributes: [],
   hasVariants: false,
   id: "UHJvZHVjdFR5cGU6NQ==",
+  isCustomizable: false,
   isShippingRequired: false,
   name: "E-books",
   productAttributes: [
