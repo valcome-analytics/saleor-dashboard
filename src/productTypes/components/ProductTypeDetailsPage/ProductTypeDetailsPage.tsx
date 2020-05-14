@@ -211,6 +211,7 @@ const ProductTypeDetailsPage: React.FC<ProductTypeDetailsPageProps> = ({
                   />
                 </>
               )}
+              <br />
               <ControlledSwitch
                 checked={data.isCustomizable}
                 disabled={disabled}

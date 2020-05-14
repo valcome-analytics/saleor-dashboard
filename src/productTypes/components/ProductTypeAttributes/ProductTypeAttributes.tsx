@@ -64,7 +64,6 @@ const numberOfColumns = 5;
 const ProductTypeAttributes: React.FC<ProductTypeAttributesProps> = props => {
   const {
     attributes,
-
     disabled,
     isChecked,
     selected,
@@ -81,26 +80,41 @@ const ProductTypeAttributes: React.FC<ProductTypeAttributesProps> = props => {
 
   const intl = useIntl();
 
+  const getData = (type: AttributeTypeEnum) => {
+    switch (type) {
+      case AttributeTypeEnum.PRODUCT:
+        return "product-attributes";
+      case AttributeTypeEnum.VARIANT:
+        return "variant-attributes";
+      case AttributeTypeEnum.CUSTOM:
+        return "custom-attributes";
+    }
+  };
+
+  const getTitle = (type: AttributeTypeEnum) => {
+    switch (type) {
+      case AttributeTypeEnum.PRODUCT:
+        return intl.formatMessage({
+          defaultMessage: "Product Attributes",
+          description: "section header"
+        });
+      case AttributeTypeEnum.VARIANT:
+        return intl.formatMessage({
+          defaultMessage: "Variant Attributes",
+          description: "section header"
+        });
+      case AttributeTypeEnum.CUSTOM:
+        return intl.formatMessage({
+          defaultMessage: "Custom Attributes",
+          description: "section header"
+        });
+    }
+  };
+
   return (
-    <Card
-      data-tc={
-        type === AttributeTypeEnum.PRODUCT
-          ? "product-attributes"
-          : "variant-attributes"
-      }
-    >
+    <Card data-tc={getData(type as AttributeTypeEnum)}>
       <CardTitle
-        title={
-          type === AttributeTypeEnum.PRODUCT
-            ? intl.formatMessage({
-                defaultMessage: "Product Attributes",
-                description: "section header"
-              })
-            : intl.formatMessage({
-                defaultMessage: "Variant Attributes",
-                description: "section header"
-              })
-        }
+        title={getTitle(type as AttributeTypeEnum)}
         toolbar={
           <Button
             color="primary"
