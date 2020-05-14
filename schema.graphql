@@ -3565,6 +3565,7 @@ type ProductType implements Node & ObjectWithMetadata {
   name: String!
   slug: String!
   hasVariants: Boolean!
+  isCustomizable: Boolean!
   isShippingRequired: Boolean!
   isDigital: Boolean!
   weight: Weight
@@ -3577,6 +3578,7 @@ type ProductType implements Node & ObjectWithMetadata {
   taxType: TaxType
   variantAttributes: [Attribute]
   productAttributes: [Attribute]
+  customizableAttributes: [Attribute]
   availableAttributes(filter: AttributeFilterInput, before: String, after: String, first: Int, last: Int): AttributeCountableConnection
 }
 

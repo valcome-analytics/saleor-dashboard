@@ -51,10 +51,12 @@ export interface ProductTypeAttributeReorder_productTypeReorderAttributes_produc
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeAttributeReorder_productTypeReorderAttributes_productType_taxType | null;
   productAttributes: (ProductTypeAttributeReorder_productTypeReorderAttributes_productType_productAttributes | null)[] | null;
   variantAttributes: (ProductTypeAttributeReorder_productTypeReorderAttributes_productType_variantAttributes | null)[] | null;
+  customizableAttributes: (ProductTypeAttributeReorder_productTypeReorderAttributes_productType_variantAttributes | null)[] | null;
   weight: ProductTypeAttributeReorder_productTypeReorderAttributes_productType_weight | null;
 }
 

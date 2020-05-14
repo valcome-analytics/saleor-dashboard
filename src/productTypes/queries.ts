@@ -18,6 +18,7 @@ export const productTypeFragment = gql`
     id
     name
     hasVariants
+    isCustomizable
     isShippingRequired
     taxType {
       description
@@ -35,6 +36,9 @@ export const productTypeDetailsFragment = gql`
       ...AttributeFragment
     }
     variantAttributes {
+      ...AttributeFragment
+    }
+    customizableAttributes {
       ...AttributeFragment
     }
     weight {

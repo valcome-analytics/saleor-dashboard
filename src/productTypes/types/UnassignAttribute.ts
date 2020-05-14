@@ -49,10 +49,12 @@ export interface UnassignAttribute_attributeUnassign_productType {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: UnassignAttribute_attributeUnassign_productType_taxType | null;
   productAttributes: (UnassignAttribute_attributeUnassign_productType_productAttributes | null)[] | null;
   variantAttributes: (UnassignAttribute_attributeUnassign_productType_variantAttributes | null)[] | null;
+  customizableAttributes: (UnassignAttribute_attributeUnassign_productType_variantAttributes | null)[] | null;
   weight: UnassignAttribute_attributeUnassign_productType_weight | null;
 }
 

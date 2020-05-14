@@ -43,9 +43,11 @@ export interface ProductTypeDetailsFragment {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeDetailsFragment_taxType | null;
   productAttributes: (ProductTypeDetailsFragment_productAttributes | null)[] | null;
   variantAttributes: (ProductTypeDetailsFragment_variantAttributes | null)[] | null;
+  customizableAttributes: (ProductTypeDetailsFragment_variantAttributes | null)[] | null;
   weight: ProductTypeDetailsFragment_weight | null;
 }

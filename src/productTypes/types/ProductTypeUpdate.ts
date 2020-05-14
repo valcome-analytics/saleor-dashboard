@@ -40,6 +40,16 @@ export interface ProductTypeUpdate_productTypeUpdate_productType_variantAttribut
   filterableInStorefront: boolean;
 }
 
+export interface ProductTypeUpdate_productTypeUpdate_productType_customAttributes {
+  __typename: "Attribute";
+  id: string;
+  name: string | null;
+  slug: string | null;
+  visibleInStorefront: boolean;
+  filterableInDashboard: boolean;
+  filterableInStorefront: boolean;
+}
+
 export interface ProductTypeUpdate_productTypeUpdate_productType_weight {
   __typename: "Weight";
   unit: string;
@@ -51,10 +61,12 @@ export interface ProductTypeUpdate_productTypeUpdate_productType {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeUpdate_productTypeUpdate_productType_taxType | null;
   productAttributes: (ProductTypeUpdate_productTypeUpdate_productType_productAttributes | null)[] | null;
   variantAttributes: (ProductTypeUpdate_productTypeUpdate_productType_variantAttributes | null)[] | null;
+  customizableAttributes: (ProductTypeUpdate_productTypeUpdate_productType_customAttributes | null)[] | null;
   weight: ProductTypeUpdate_productTypeUpdate_productType_weight | null;
 }
 

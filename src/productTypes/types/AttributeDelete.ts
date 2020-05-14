@@ -55,10 +55,12 @@ export interface AttributeDelete_attributeDelete_productType {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxRate: TaxRateType | null;
   productAttributes: (AttributeDelete_attributeDelete_productType_productAttributes | null)[] | null;
   variantAttributes: (AttributeDelete_attributeDelete_productType_variantAttributes | null)[] | null;
+  customizableAttributes: (AttributeDelete_attributeDelete_productType_variantAttributes | null)[] | null;
   weight: AttributeDelete_attributeDelete_productType_weight | null;
 }
 

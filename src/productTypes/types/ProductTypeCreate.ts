@@ -51,10 +51,12 @@ export interface ProductTypeCreate_productTypeCreate_productType {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeCreate_productTypeCreate_productType_taxType | null;
   productAttributes: (ProductTypeCreate_productTypeCreate_productType_productAttributes | null)[] | null;
   variantAttributes: (ProductTypeCreate_productTypeCreate_productType_variantAttributes | null)[] | null;
+  customizableAttributes: (ProductTypeCreate_productTypeCreate_productType_variantAttributes | null)[] | null;
   weight: ProductTypeCreate_productTypeCreate_productType_weight | null;
 }
 

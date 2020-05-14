@@ -19,6 +19,7 @@ export interface ProductTypeList_productTypes_edges_node {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeList_productTypes_edges_node_taxType | null;
 }

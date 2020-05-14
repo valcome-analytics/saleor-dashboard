@@ -40,6 +40,16 @@ export interface AssignAttribute_attributeAssign_productType_variantAttributes {
   filterableInStorefront: boolean;
 }
 
+export interface AssignAttribute_attributeAssign_productType_customAttributes {
+  __typename: "Attribute";
+  id: string;
+  name: string | null;
+  slug: string | null;
+  visibleInStorefront: boolean;
+  filterableInDashboard: boolean;
+  filterableInStorefront: boolean;
+}
+
 export interface AssignAttribute_attributeAssign_productType_weight {
   __typename: "Weight";
   unit: string;
@@ -51,10 +61,12 @@ export interface AssignAttribute_attributeAssign_productType {
   id: string;
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: AssignAttribute_attributeAssign_productType_taxType | null;
   productAttributes: (AssignAttribute_attributeAssign_productType_productAttributes | null)[] | null;
   variantAttributes: (AssignAttribute_attributeAssign_productType_variantAttributes | null)[] | null;
+  customizableAttributes: (AssignAttribute_attributeAssign_productType_customAttributes | null)[] | null;
   weight: AssignAttribute_attributeAssign_productType_weight | null;
 }
 
