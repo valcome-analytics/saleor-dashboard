@@ -33,10 +33,12 @@ interface ChoiceType {
 export interface ProductTypeForm {
   name: string;
   hasVariants: boolean;
+  isCustomizable: boolean;
   isShippingRequired: boolean;
   taxType: string;
   productAttributes: ChoiceType[];
   variantAttributes: ChoiceType[];
+  customizableAttributes: ChoiceType[];
   weight: number;
 }
 
@@ -50,6 +52,7 @@ export interface ProductTypeDetailsPageProps {
   saveButtonBarState: ConfirmButtonTransitionState;
   taxTypes: ProductTypeDetails_taxTypes[];
   variantAttributeList: ListActions;
+  customizableAttributeList: ListActions;
   onAttributeAdd: (type: AttributeTypeEnum) => void;
   onAttributeClick: (id: string) => void;
   onAttributeReorder: (event: ReorderEvent, type: AttributeTypeEnum) => void;
@@ -57,6 +60,7 @@ export interface ProductTypeDetailsPageProps {
   onBack: () => void;
   onDelete: () => void;
   onHasVariantsToggle: (hasVariants: boolean) => void;
+  onIsCustomizableToggle: (isCustomizable: boolean) => void;
   onSubmit: (data: ProductTypeForm) => void;
 }
 
@@ -82,6 +86,7 @@ const ProductTypeDetailsPage: React.FC<ProductTypeDetailsPageProps> = ({
   saveButtonBarState,
   taxTypes,
   variantAttributeList,
+  customizableAttributeList,
   onAttributeAdd,
   onAttributeUnassign,
   onAttributeReorder,
@@ -89,6 +94,7 @@ const ProductTypeDetailsPage: React.FC<ProductTypeDetailsPageProps> = ({
   onBack,
   onDelete,
   onHasVariantsToggle,
+  onIsCustomizableToggle,
   onSubmit
 }) => {
   const intl = useIntl();
@@ -96,9 +102,20 @@ const ProductTypeDetailsPage: React.FC<ProductTypeDetailsPageProps> = ({
     maybe(() => productType.taxType.description, "")
   );
   const formInitialData: ProductTypeForm = {
+    customizableAttributes:
+      maybe(() => productType.customizableAttributes) !== undefined
+        ? productType.customizableAttributes.map(attribute => ({
+            label: attribute.name,
+            value: attribute.id
+          }))
+        : [],
     hasVariants:
       maybe(() => productType.hasVariants) !== undefined
         ? productType.hasVariants
+        : false,
+    isCustomizable:
+      maybe(() => productType.isCustomizable) !== undefined
+        ? productType.isCustomizable
         : false,
     isShippingRequired:
       maybe(() => productType.isShippingRequired) !== undefined
@@ -191,6 +208,33 @@ const ProductTypeDetailsPage: React.FC<ProductTypeDetailsPageProps> = ({
                     }
                     onAttributeUnassign={onAttributeUnassign}
                     {...variantAttributeList}
+                  />
+                </>
+              )}
+              <ControlledSwitch
+                checked={data.isCustomizable}
+                disabled={disabled}
+                label={intl.formatMessage({
+                  defaultMessage: "Product type uses Customizable Attributes",
+                  description: "switch button"
+                })}
+                name="isCustomizable"
+                onChange={event => onIsCustomizableToggle(event.target.value)}
+              />
+              {data.isCustomizable && (
+                <>
+                  <CardSpacer />
+                  <ProductTypeAttributes
+                    attributes={maybe(() => productType.customizableAttributes)}
+                    disabled={disabled}
+                    type={AttributeTypeEnum.CUSTOM}
+                    onAttributeAssign={onAttributeAdd}
+                    onAttributeClick={onAttributeClick}
+                    onAttributeReorder={(event: ReorderEvent) =>
+                      onAttributeReorder(event, AttributeTypeEnum.CUSTOM)
+                    }
+                    onAttributeUnassign={onAttributeUnassign}
+                    {...customizableAttributeList}
                   />
                 </>
               )}

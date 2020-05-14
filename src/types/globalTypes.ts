@@ -59,6 +59,7 @@ export enum AttributeSortField {
 export enum AttributeTypeEnum {
   PRODUCT = "PRODUCT",
   VARIANT = "VARIANT",
+  CUSTOM = "CUSTOM",
 }
 
 export enum AttributeValueType {
@@ -1212,8 +1213,10 @@ export interface ProductTypeInput {
   name?: string | null;
   slug?: string | null;
   hasVariants?: boolean | null;
+  isCustomizable?: boolean | null;
   productAttributes?: (string | null)[] | null;
   variantAttributes?: (string | null)[] | null;
+  customizableAttributes?: (string | null)[] | null;
   isShippingRequired?: boolean | null;
   isDigital?: boolean | null;
   weight?: any | null;

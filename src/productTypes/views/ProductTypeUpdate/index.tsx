@@ -47,6 +47,7 @@ export const ProductTypeUpdate: React.FC<ProductTypeUpdateProps> = ({
   const notify = useNotifier();
   const productAttributeListActions = useBulkActions();
   const variantAttributeListActions = useBulkActions();
+  const customizableAttributeListActions = useBulkActions();
   const intl = useIntl();
   const { loadMore, search, result } = useAvailableAttributeSearch({
     variables: {
@@ -93,6 +94,7 @@ export const ProductTypeUpdate: React.FC<ProductTypeUpdateProps> = ({
                 closeModal();
                 productAttributeListActions.reset();
                 variantAttributeListActions.reset();
+                customizableAttributeListActions.reset();
               }
             };
             const handleProductTypeDeleteSuccess = (
@@ -170,6 +172,15 @@ export const ProductTypeUpdate: React.FC<ProductTypeUpdateProps> = ({
                       id,
                       input: {
                         hasVariants
+                      }
+                    });
+                  const handleProductTypeCustomsToggle = (
+                    isCustomizable: boolean
+                  ) =>
+                    updateProductType.mutate({
+                      id,
+                      input: {
+                        isCustomizable
                       }
                     });
                   const handleAssignAttribute = () =>
@@ -256,6 +267,7 @@ export const ProductTypeUpdate: React.FC<ProductTypeUpdateProps> = ({
                           )
                         }
                         onHasVariantsToggle={handleProductTypeVariantsToggle}
+                        onIsCustomizableToggle={handleProductTypeCustomsToggle}
                         onSubmit={handleProductTypeUpdate}
                         productAttributeList={{
                           isChecked: productAttributeListActions.isSelected,
@@ -298,6 +310,34 @@ export const ProductTypeUpdate: React.FC<ProductTypeUpdateProps> = ({
                                     action: "unassign-attributes",
                                     ids:
                                       variantAttributeListActions.listElements
+                                  })
+                                )
+                              }
+                            >
+                              <FormattedMessage
+                                defaultMessage="Unassign"
+                                description="unassign attribute from product type, button"
+                              />
+                            </Button>
+                          )
+                        }}
+                        customizableAttributeList={{
+                          isChecked:
+                            customizableAttributeListActions.isSelected,
+                          selected:
+                            customizableAttributeListActions.listElements
+                              .length,
+                          toggle: customizableAttributeListActions.toggle,
+                          toggleAll: customizableAttributeListActions.toggleAll,
+                          toolbar: (
+                            <Button
+                              color="primary"
+                              onClick={() =>
+                                navigate(
+                                  productTypeUrl(id, {
+                                    action: "unassign-attributes",
+                                    ids:
+                                      customizableAttributeListActions.listElements
                                   })
                                 )
                               }
