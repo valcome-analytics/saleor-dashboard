@@ -13,6 +13,7 @@ import { WeightUnitsEnum } from "../../../types/globalTypes";
 import Decorator from "../../Decorator";
 
 const props: Omit<ProductTypeDetailsPageProps, "classes"> = {
+  customizableAttributeList: listActionsProps,
   defaultWeightUnit: "kg" as WeightUnitsEnum,
   disabled: false,
   errors: [],
@@ -23,6 +24,7 @@ const props: Omit<ProductTypeDetailsPageProps, "classes"> = {
   onBack: () => undefined,
   onDelete: () => undefined,
   onHasVariantsToggle: () => undefined,
+  onIsCustomizableToggle: () => undefined,
   onSubmit: () => undefined,
   pageTitle: productType.name,
   productAttributeList: listActionsProps,
