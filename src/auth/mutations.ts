@@ -1,7 +1,8 @@
+import { accountErrorFragment } from "@saleor/customers/mutations";
 import gql from "graphql-tag";
 
-import { accountErrorFragment } from "@saleor/customers/mutations";
 import { TypedMutation } from "../mutations";
+import { RefreshToken, RefreshTokenVariables } from "./types/RefreshToken";
 import {
   RequestPasswordReset,
   RequestPasswordResetVariables
@@ -98,3 +99,16 @@ export const SetPasswordMutation = TypedMutation<
   SetPassword,
   SetPasswordVariables
 >(setPassword);
+
+const refreshToken = gql`
+  mutation RefreshToken($token: String!) {
+    tokenRefresh(token: $token) {
+      token
+      payload
+    }
+  }
+`;
+export const TokenRefreshMutation = TypedMutation<
+  RefreshToken,
+  RefreshTokenVariables
+>(refreshToken);
