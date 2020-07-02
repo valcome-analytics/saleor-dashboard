@@ -3,7 +3,7 @@ import useNavigator from "@saleor/hooks/useNavigator";
 import useNotifier from "@saleor/hooks/useNotifier";
 import React from "react";
 import { useIntl } from "react-intl";
-
+import draftToHtml from "draftjs-to-html";
 import PageDetailsPage from "../components/PageDetailsPage";
 import { TypedPageCreate } from "../mutations";
 import { PageCreate as PageCreateData } from "../types/PageCreate";
@@ -50,6 +50,7 @@ export const PageCreate: React.FC<PageCreateProps> = () => {
               pageCreate({
                 variables: {
                   input: {
+                    content: draftToHtml(formData.content),
                     contentJson: JSON.stringify(formData.content),
                     isPublished: formData.isPublished,
                     publicationDate: formData.isPublished

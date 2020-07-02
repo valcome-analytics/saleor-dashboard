@@ -6,6 +6,7 @@ import useNotifier from "@saleor/hooks/useNotifier";
 import { commonMessages } from "@saleor/intl";
 import React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import draftToHtml from "draftjs-to-html";
 
 import { getStringOrPlaceholder, maybe } from "../../misc";
 import { PageInput } from "../../types/globalTypes";
@@ -21,6 +22,7 @@ export interface PageDetailsProps {
 }
 
 const createPageInput = (data: FormData): PageInput => ({
+  content: draftToHtml(data.content),
   contentJson: JSON.stringify(data.content),
   isPublished: data.isPublished,
   publicationDate: data.isPublished
