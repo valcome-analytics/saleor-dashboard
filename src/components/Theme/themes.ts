@@ -63,8 +63,8 @@ export const dark: IThemeColors = {
     textHover: "#616161"
   },
   paperBorder: "#252728",
-  primary: "#13BEBB",
-  secondary: "#21125E",
+  primary: "#007CA3",
+  secondary: "#033B59",
   theme: "dark"
 };
 export const light: IThemeColors = {
@@ -82,7 +82,7 @@ export const light: IThemeColors = {
     button: "#FFFFFF",
     default: "#3D3D3D",
     gray: "#616161",
-    textButton: "#06847B",
+    textButton: "#007CA3",
     textDisabled: "#616161"
   },
   gray: {
@@ -100,7 +100,7 @@ export const light: IThemeColors = {
     textHover: "#616161"
   },
   paperBorder: "#EAEAEA",
-  primary: "#06847B",
-  secondary: "#21125E",
+  primary: "#007CA3",
+  secondary: "#033B59",
   theme: "light"
 };
