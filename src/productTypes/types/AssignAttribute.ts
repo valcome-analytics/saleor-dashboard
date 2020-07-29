@@ -62,6 +62,7 @@ export interface AssignAttribute_attributeAssign_productType {
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: AssignAttribute_attributeAssign_productType_taxType | null;
   productAttributes: (AssignAttribute_attributeAssign_productType_productAttributes | null)[] | null;

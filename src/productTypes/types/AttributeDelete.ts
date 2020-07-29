@@ -56,6 +56,7 @@ export interface AttributeDelete_attributeDelete_productType {
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxRate: TaxRateType | null;
   productAttributes: (AttributeDelete_attributeDelete_productType_productAttributes | null)[] | null;

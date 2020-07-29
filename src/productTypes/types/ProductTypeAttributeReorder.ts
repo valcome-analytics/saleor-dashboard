@@ -52,6 +52,7 @@ export interface ProductTypeAttributeReorder_productTypeReorderAttributes_produc
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeAttributeReorder_productTypeReorderAttributes_productType_taxType | null;
   productAttributes: (ProductTypeAttributeReorder_productTypeReorderAttributes_productType_productAttributes | null)[] | null;

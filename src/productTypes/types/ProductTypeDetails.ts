@@ -57,6 +57,7 @@ export interface ProductTypeDetails_productType {
   hasVariants: boolean;
   isCustomizable: boolean;
   isShippingRequired: boolean;
+  isDigital: boolean;
   taxType: ProductTypeDetails_productType_taxType | null;
   productAttributes: (ProductTypeDetails_productType_productAttributes | null)[] | null;
   variantAttributes: (ProductTypeDetails_productType_variantAttributes | null)[] | null;

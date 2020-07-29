@@ -50,6 +50,7 @@ export interface UnassignAttribute_attributeUnassign_productType {
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: UnassignAttribute_attributeUnassign_productType_taxType | null;
   productAttributes: (UnassignAttribute_attributeUnassign_productType_productAttributes | null)[] | null;

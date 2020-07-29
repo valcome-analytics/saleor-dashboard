@@ -35,6 +35,7 @@ export interface ProductTypeForm {
   hasVariants: boolean;
   isCustomizable: boolean;
   isShippingRequired: boolean;
+  isDigital: boolean;
   taxType: string;
   productAttributes: ChoiceType[];
   variantAttributes: ChoiceType[];
@@ -116,6 +117,10 @@ const ProductTypeDetailsPage: React.FC<ProductTypeDetailsPageProps> = ({
     isCustomizable:
       maybe(() => productType.isCustomizable) !== undefined
         ? productType.isCustomizable
+        : false,
+    isDigital:
+      maybe(() => productType.isDigital) !== undefined
+        ? productType.isDigital
         : false,
     isShippingRequired:
       maybe(() => productType.isShippingRequired) !== undefined

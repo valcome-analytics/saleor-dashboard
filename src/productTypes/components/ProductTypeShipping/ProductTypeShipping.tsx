@@ -10,6 +10,7 @@ import { WeightUnitsEnum } from "../../../types/globalTypes";
 
 interface ProductTypeShippingProps {
   data: {
+    isDigital: boolean;
     isShippingRequired: boolean;
     weight: number | null;
   };
@@ -62,6 +63,16 @@ const ProductTypeShipping: React.FC<ProductTypeShippingProps> = ({
             onChange={onChange}
           />
         )}
+        <ControlledCheckbox
+          checked={data.isDigital}
+          disabled={disabled}
+          label={intl.formatMessage({
+            defaultMessage: "Is this product digital?",
+            description: "switch button"
+          })}
+          name="isDigital"
+          onChange={onChange}
+        />
       </CardContent>
     </Card>
   );

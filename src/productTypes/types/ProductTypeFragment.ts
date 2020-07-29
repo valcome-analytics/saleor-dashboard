@@ -18,6 +18,7 @@ export interface ProductTypeFragment {
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeFragment_taxType | null;
 }

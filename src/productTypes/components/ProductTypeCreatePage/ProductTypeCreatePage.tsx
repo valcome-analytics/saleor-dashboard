@@ -21,6 +21,7 @@ import ProductTypeTaxes from "../ProductTypeTaxes/ProductTypeTaxes";
 
 export interface ProductTypeForm {
   name: string;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: string;
   weight: number;
@@ -38,6 +39,7 @@ export interface ProductTypeCreatePageProps {
 }
 
 const formInitialData: ProductTypeForm = {
+  isDigital: false,
   isShippingRequired: false,
   name: "",
   taxType: "",

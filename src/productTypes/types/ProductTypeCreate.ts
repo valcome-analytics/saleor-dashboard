@@ -52,6 +52,7 @@ export interface ProductTypeCreate_productTypeCreate_productType {
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeCreate_productTypeCreate_productType_taxType | null;
   productAttributes: (ProductTypeCreate_productTypeCreate_productType_productAttributes | null)[] | null;

@@ -44,6 +44,7 @@ export interface ProductTypeDetailsFragment {
   name: string;
   hasVariants: boolean;
   isCustomizable: boolean;
+  isDigital: boolean;
   isShippingRequired: boolean;
   taxType: ProductTypeDetailsFragment_taxType | null;
   productAttributes: (ProductTypeDetailsFragment_productAttributes | null)[] | null;
