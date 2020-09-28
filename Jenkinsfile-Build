@@ -5,17 +5,11 @@ pipeline {
         label 'master'
     }
     stages {
-        stage('Checkout Saleor-Platform') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'SubmoduleOption', disableSubmodules: false, parentCredentials: true, recursiveSubmodules: true, reference: '', threads: 2, trackingSubmodules: false]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'valcome-analytics-git', url: 'https://github.com/valcome-analytics/saleor-dashboard']]])
-            }
-        }
         stage('Build Dashboard Image') {
             environment {
                 AWS_ACCESS_KEY_ID = credentials('AWS_DOCKER_REGISTRY_ACCESS_KEY_ID')
                 AWS_SECRET_ACCESS_KEY = credentials('AWS_DOCKER_REGISTRY_SECRET_KEY')
                 REGISTRY = '487554623251.dkr.ecr.eu-central-1.amazonaws.com'
-                REPOSITORY = 'valcome/saleor-dashboard'
             }
             steps {
                 /*
@@ -31,6 +25,11 @@ pipeline {
                 sh 'docker build -f Dockerfile --build-arg API_URI=${API_URI} -t ${REGISTRY}/${REPOSITORY}:${VERSION} .'
                 sh 'docker push ${REGISTRY}/${REPOSITORY}:${VERSION}'
             }
+        }
+    }
+     post {
+        always {
+            slackSend channel: '#jenkins', color: COLOR_MAP[currentBuild.currentResult], message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n See: ${env.BUILD_URL}"
         }
     }
 }
